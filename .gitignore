@@ -25,3 +25,5 @@ hs_err_pid*
 .idea/
 text-ui-test/ACTUAL.TXT
 circus-ay2223s2.iml
+
+*.iml
