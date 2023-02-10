@@ -1,12 +1,13 @@
 package circus;
 
-import circus.animal.Animal;
-import circus.animal.Duck;
-import circus.animal.Parrot;
-import circus.animal.Tiger;
+import circus.animal.*;
 import circus.stuff.Cannon;
 import circus.stuff.Equipment;
 import circus.stuff.Ladder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Circus {
     private static Animal[] animals = {
@@ -44,5 +45,24 @@ public class Circus {
         makeAnimalsTalk();
         System.out.println("Total value of animals " + calculateAssetValue(animals));
         System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+
+        ArrayList<Animal> animalArrayList = new ArrayList<>(Arrays.asList(animals));
+        Duck louie = new Duck("Louie");
+        Parrot andy = new Parrot("Andy");
+        Elephant strongOne = new Elephant("Strong One");
+
+        animalArrayList.add(louie);
+        animalArrayList.add(andy);
+        animalArrayList.add(strongOne);
+
+        //Collections.sort(animalArrayList);
+        animalArrayList.sort(Animal.AnimalNameComparator);
+        for (Animal a : animalArrayList) {
+            System.out.println(a);
+        }
+
+        System.out.println("Number of animals: " + animalArrayList.size());
+        System.out.println("Index of Louie: " + animalArrayList.indexOf());
+
     }
 }
